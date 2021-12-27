@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 619487320304791424}
   - component: {fileID: 8513657122845916617}
   m_Layer: 0
-  m_Name: SparkBullet
+  m_Name: Spark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
