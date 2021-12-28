@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IMotion
 {
-    void Move(Transform transform, float speed);
+    Vector3 Play(float speed);
 }
