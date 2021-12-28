@@ -16,7 +16,7 @@ MonoBehaviour:
   _detail: 
   _power: 5
   _stamina: 1
-  _speed: 1
+  _speed: 2.5
   _motions:
   - id: 0
   references:

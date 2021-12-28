@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IMotion
 {
-    Vector3 Play(float speed);
+    Vector2 Play(float speed);
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   _detail: 
   _hp: 10
   _speed: 1
-  _fireRate: 2
+  _fireRate: 1
   _motions:
   - id: 0
   references:

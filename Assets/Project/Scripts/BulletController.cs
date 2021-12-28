@@ -1,15 +1,22 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class BulletController : MonoBehaviour
 {
     [SerializeField]
     private BulletData _data;
+    private Rigidbody2D _rigidbody;
 
-    private void Update()
+    private void Awake()
     {
-        foreach(var motion in _data.Motions)
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        foreach (var motion in _data.Motions)
         {
-            transform.position += motion.Play(_data.Speed);
+            _rigidbody.velocity = motion.Play(_data.Speed);
         }
     }
 
