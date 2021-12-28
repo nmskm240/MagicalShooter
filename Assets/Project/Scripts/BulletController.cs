@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour
     {
         foreach(var motion in _data.Motions)
         {
-            motion.Move(transform, _data.Speed);
+            transform.position += motion.Play(_data.Speed);
         }
     }
 
