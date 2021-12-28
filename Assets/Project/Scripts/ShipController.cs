@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class ShipController : MonoBehaviour
 {
     [SerializeField]
@@ -7,6 +8,12 @@ public class ShipController : MonoBehaviour
     [SerializeField]
     private GameObject _bullet;
     private float _time;
+    private Rigidbody2D _rigidbody;
+
+    private void Awake()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
@@ -22,7 +29,7 @@ public class ShipController : MonoBehaviour
     {
         foreach(var motion in _data.Motions)
         {
-            transform.position += motion.Play(_data.Speed);
+            _rigidbody.velocity = motion.Play(_data.Speed);
         }
     }
 

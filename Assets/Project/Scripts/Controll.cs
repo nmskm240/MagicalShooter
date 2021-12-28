@@ -2,11 +2,11 @@ using UnityEngine;
 
 class Controll : IMotion
 {
-    public Vector3 Play(float speed)
+    public Vector2 Play(float speed)
     {
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
-        var dir = new Vector3(x, y, 0).normalized;
+        var dir = new Vector2(x, y).normalized;
         return dir * speed;
     }
 }
