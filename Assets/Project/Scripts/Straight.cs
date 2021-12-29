@@ -2,8 +2,8 @@ using UnityEngine;
 
 class Straight : IMotion
 {
-    public Vector2 Play(float speed)
+    public Vector2 Play(Vector3 up, float speed)
     {
-        return Vector2.up * speed;
+        return up * speed;
     }
 }

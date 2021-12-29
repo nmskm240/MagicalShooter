@@ -2,7 +2,7 @@ using UnityEngine;
 
 class Controll : IMotion
 {
-    public Vector2 Play(float speed)
+    public Vector2 Play(Vector3 up ,float speed)
     {
         var x = Input.GetAxis("Horizontal");
         var y = Input.GetAxis("Vertical");
