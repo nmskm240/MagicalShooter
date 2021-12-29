@@ -29,7 +29,7 @@ public class ShipController : MonoBehaviour
     {
         foreach(var motion in _data.Motions)
         {
-            _rigidbody.velocity = motion.Play(_data.Speed);
+            _rigidbody.velocity = motion.Play(transform.up, _data.Speed);
         }
     }
 
