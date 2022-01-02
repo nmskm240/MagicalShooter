@@ -17,9 +17,3 @@ MonoBehaviour:
   _hp: 5
   _speed: 1
   _fireRate: 1
-  _motions:
-  - id: 0
-  references:
-    version: 1
-    00000000:
-      type: {class: Controll, ns: , asm: Assembly-CSharp}

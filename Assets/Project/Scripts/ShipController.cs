@@ -6,6 +6,8 @@ using UniRx.Triggers;
 [RequireComponent(typeof(Rigidbody2D))]
 public class ShipController : MonoBehaviour
 {
+    [SerializeField]
+    private Weapon _weapon;
     protected Rigidbody2D _rigidbody;
 
     private void Awake()
@@ -29,7 +31,7 @@ public class ShipController : MonoBehaviour
             .ThrottleFirst(TimeSpan.FromSeconds(0.5f))
             .Subscribe(_ =>
             {
-                Debug.Log("test");
+                _weapon.Fire();
             });
     }
 }
