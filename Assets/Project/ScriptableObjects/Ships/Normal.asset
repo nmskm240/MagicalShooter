@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: "\u91CF\u7523\u6A5F"
   _detail: 
-  _hp: 10
+  _hp: 5
   _speed: 1
   _fireRate: 1
   _motions:

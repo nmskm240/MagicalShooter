@@ -1,40 +1,35 @@
+using System;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ShipController : MonoBehaviour
 {
-    [SerializeField]
-    private ShipData _data;
-    [SerializeField]
-    private GameObject _bullet;
-    private float _time;
-    private Rigidbody2D _rigidbody;
+    protected Rigidbody2D _rigidbody;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void Start()
     {
-        _time += Time.deltaTime;
-        if (_data.FireRate < _time && Input.GetKey(KeyCode.Space))
-        {
-            _time = 0;
-            Fire();
-        }
-    }
+        var moveInputStream = this.UpdateAsObservable()
+            .Select(_ => new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        this.FixedUpdateAsObservable()
+            .WithLatestFrom(moveInputStream, (_, input) => input)
+            .Subscribe(input =>
+            {
+                _rigidbody.velocity = input.normalized;
+            });
 
-    private void FixedUpdate()
-    {
-        foreach(var motion in _data.Motions)
-        {
-            _rigidbody.velocity = motion.Play(transform.up, _data.Speed);
-        }
-    }
-
-    private void Fire()
-    {
-        Instantiate(_bullet, transform.position, transform.rotation);
+        this.UpdateAsObservable()
+            .Where(_ => Input.GetKey(KeyCode.Space))
+            .ThrottleFirst(TimeSpan.FromSeconds(0.5f))
+            .Subscribe(_ =>
+            {
+                Debug.Log("test");
+            });
     }
 }
