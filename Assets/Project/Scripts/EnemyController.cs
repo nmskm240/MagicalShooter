@@ -21,4 +21,11 @@ public class EnemyController : MonoBehaviour
             _rigidbody.velocity = motion.Play(Vector2.down, 1);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }    
+    }
 }
