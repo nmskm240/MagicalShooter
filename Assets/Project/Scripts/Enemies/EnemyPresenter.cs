@@ -30,11 +30,11 @@ namespace Shooting.Enemies
                 });
             var hit = this.OnTriggerEnter2DAsObservable()
                 .Where(collider => _model.IsHit(collider.gameObject))
-                .Select(collider => collider.gameObject)
-                .Subscribe(obj =>
+                .Select(collider => collider.gameObject.GetComponent<IAttacker>())
+                .Subscribe(attacker =>
                 {
-                    Destroy(obj);
-                    _model.Damage(1);
+                    _model.Damage(attacker.Power);
+                    attacker.OnAttacked();
                 });
             _model.OnDead.Subscribe(_ =>
             {

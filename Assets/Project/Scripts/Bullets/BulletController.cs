@@ -1,25 +1,33 @@
 using UnityEngine;
+using Shooting;
+using Shooting.Utils;
 
 namespace Shooting.Bullets
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class BulletController : MonoBehaviour
+    public class BulletController : ScriptableObjectInstancePresenter<BulletData>, IAttacker
     {
-        [SerializeField]
-        private BulletData _data;
         private Rigidbody2D _rigidbody;
 
-        private void Awake()
+        public int Power { get { return _model.Power; } }
+
+        protected override void Awake()
         {
+            base.Awake();
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
         {
-            foreach (var motion in _data.Motions)
+            foreach (var motion in _model.Motions)
             {
-                _rigidbody.velocity = motion.Play(transform.up, _data.Speed);
+                _rigidbody.velocity = motion.Play(transform.up, _model.Speed);
             }
+        }
+
+        public void OnAttacked()
+        {
+            Destroy(gameObject);
         }
     }
 }
