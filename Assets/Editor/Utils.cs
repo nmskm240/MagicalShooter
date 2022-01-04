@@ -15,6 +15,6 @@ public static class Utils
 		if (fileName.Length == 0)
 			return;
 
-		Application.CaptureScreenshot (fileName);
+		ScreenCapture.CaptureScreenshot (fileName);
 	}
 }
