@@ -22,4 +22,4 @@ MonoBehaviour:
   references:
     version: 1
     00000000:
-      type: {class: Straight, ns: , asm: Assembly-CSharp}
+      type: {class: Straight, ns: Shooting.Motions, asm: Assembly-CSharp}
