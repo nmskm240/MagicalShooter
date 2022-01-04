@@ -32,10 +32,15 @@ public class EnemyData : ScriptableObject
         _currentHP = _maxHP;
     }
 
+    public virtual bool IsHit(GameObject obj)
+    {
+        return obj.CompareTag("PlayersBullet");
+    }
+
     public virtual void Damage(int power)
     {
         _currentHP -= power;
-        if(_currentHP <= 0)
+        if (_currentHP <= 0)
         {
             _currentHP = 0;
             _onDead.OnNext(Unit.Default);
