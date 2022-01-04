@@ -12,7 +12,7 @@ namespace Shooting.Bullets
         [SerializeField, Multiline]
         private string _detail;
         [SerializeField]
-        private float _power;
+        private int _power;
         [SerializeField]
         private float _stamina;
         [SerializeField]
@@ -22,7 +22,7 @@ namespace Shooting.Bullets
 
         public string Name { get { return _name; } }
         public string Detail { get { return _detail; } }
-        public float Power { get { return _power; } }
+        public int Power { get { return _power; } }
         public float Stamina { get { return _stamina; } }
         public float Speed { get { return _speed; } }
         public IEnumerable<IMotion> Motions { get { return _motions; } }
