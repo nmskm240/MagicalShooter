@@ -26,9 +26,11 @@ public class EnemyPresenter : ScriptableObjectInstancePresenter<EnemyData>
                 }
             });
         var hit = this.OnTriggerEnter2DAsObservable()
-            .Select(collider => collider.gameObject.CompareTag("PlayersBullet"))
-            .Subscribe(_ =>
+            .Where(collider => _model.IsHit(collider.gameObject))
+            .Select(collider => collider.gameObject)
+            .Subscribe(obj =>
             {
+                Destroy(obj);
                 _model.Damage(1);
             });
         _model.OnDead.Subscribe(_ =>
