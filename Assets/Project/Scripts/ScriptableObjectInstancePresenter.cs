@@ -2,12 +2,12 @@ using UnityEngine;
 
 public abstract class ScriptableObjectInstancePresenter<T> : MonoBehaviour where T : ScriptableObject
 {
-
-    public T _model;
-    protected T model { get; set; }
+    [SerializeField]
+    private T _original;
+    protected T _model { get; private set; }
 
     protected virtual void Awake()
     {
-        model = ScriptableObject.Instantiate<T>(_model);
+        _model = ScriptableObject.Instantiate<T>(_original);
     }
 }
