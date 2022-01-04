@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: "\u901A\u5E38\u5F3E"
   _detail: 
-  _power: 5
-  _stamina: 1
+  _power: 3
   _speed: 2.5
   _motions:
   - id: 0
