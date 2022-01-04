@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
@@ -19,7 +20,10 @@ namespace Shooting.Enemies
         private float _speed;
         [SerializeReference, SubclassSelector]
         private List<IMotion> _motions;
+        [NonSerialized]
         private int _currentHP;
+        [NonSerialized]
+        private ReactiveProperty<IMotion> _currentMotion = new ReactiveProperty<IMotion>();
         private Subject<Unit> _onDead = new Subject<Unit>();
 
         public string Name { get { return _name; } }
@@ -28,16 +32,14 @@ namespace Shooting.Enemies
         public int CurrentHP { get { return _currentHP; } }
         public float Speed { get { return _speed; } }
         public IEnumerable<IMotion> Motions { get { return _motions; } }
+        public IObservable<IMotion> OnMotionChanged { get { return _currentMotion; } }
         public IObservable<Unit> OnDead { get { return _onDead; } }
+        public bool CanHit { get { return 0 < _currentHP; } }
 
         protected virtual void OnEnable()
         {
             _currentHP = _maxHP;
-        }
-
-        public virtual bool IsHit(GameObject obj)
-        {
-            return obj.CompareTag("PlayersBullet");
+            _currentMotion.Value = _motions.First();
         }
 
         public virtual void Damage(int power)

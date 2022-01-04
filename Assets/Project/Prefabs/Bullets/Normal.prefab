@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 2072682342539168925}
   - component: {fileID: 1184092601451992400}
   - component: {fileID: 684491398564894756}
-  - component: {fileID: 8220089858601195012}
   - component: {fileID: 3807069342719521411}
-  m_Layer: 0
+  - component: {fileID: 3613525011492454779}
+  m_Layer: 8
   m_Name: Normal
-  m_TagString: PlayersBullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,19 +123,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15
---- !u!114 &8220089858601195012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5312218552844099529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2bb9f4060e59943ba5d3cdb7c7d274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _original: {fileID: 11400000, guid: bef5b302db449224db0e578dcb9e0562, type: 2}
 --- !u!114 &3807069342719521411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,3 +135,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6bd49009b51ae4297fb37c7194e26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3613525011492454779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312218552844099529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172c9a6e20cc8754d90ad05c11b0960d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _original: {fileID: 11400000, guid: bef5b302db449224db0e578dcb9e0562, type: 2}
