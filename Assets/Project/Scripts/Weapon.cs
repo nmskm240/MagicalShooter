@@ -1,17 +1,21 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Shooting.Utils;
 
-public class Weapon : MonoBehaviour
+namespace Shooting.Weapons
 {
-    [SerializeField]
-    private List<Factory> _ports;
-
-    public void Fire()
+    public class Weapon : MonoBehaviour
     {
-        foreach (var bullet in _ports.Select(port => port.Create()))
+        [SerializeField]
+        private List<Factory> _ports;
+
+        public void Fire()
         {
-            bullet.transform.parent = null;
+            foreach (var bullet in _ports.Select(port => port.Create()))
+            {
+                bullet.transform.parent = null;
+            }
         }
     }
 }
