@@ -19,9 +19,4 @@ public class BulletController : MonoBehaviour
             _rigidbody.velocity = motion.Play(transform.up, _data.Speed);
         }
     }
-
-    private void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
 }
