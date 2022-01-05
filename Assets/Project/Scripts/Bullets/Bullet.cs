@@ -1,7 +1,7 @@
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
-using Shooting.Utils;
+using Shooting.Characters;
 
 namespace Shooting.Bullets
 {

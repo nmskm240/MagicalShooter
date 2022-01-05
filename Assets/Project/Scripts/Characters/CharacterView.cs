@@ -1,9 +1,8 @@
 using UnityEngine;
 
-namespace Shooting.Enemies
+namespace Shooting.Characters
 {
-    [RequireComponent(typeof(SpriteRenderer))]
-    public class EnemyView : MonoBehaviour
+    public abstract class CharacterView : MonoBehaviour
     {
         [SerializeField]
         private ParticleSystem _explosionParticle;
