@@ -6,13 +6,14 @@ using Shooting.Utils;
 namespace Shooting.Bullets
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Bullet : ScriptableObjectInstancePresenter<BulletData>
+    public class Bullet : MonoBehaviour
     {
+        [SerializeField]
+        private BulletData _model;
         private Rigidbody2D _rigidbody;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
