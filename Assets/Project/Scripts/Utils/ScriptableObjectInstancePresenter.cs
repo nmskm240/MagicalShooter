@@ -2,15 +2,17 @@ using UnityEngine;
 
 namespace Shooting.Utils
 {
-    public abstract class ScriptableObjectInstancePresenter<T> : MonoBehaviour where T : ScriptableObject
+    public abstract class ScriptableObjectInstancePresenter<TModel, TView> : Presenter<TModel, TView>
+        where TModel : ScriptableObject
+        where TView : MonoBehaviour
     {
         [SerializeField]
-        private T _original;
-        protected T _model { get; private set; }
+        private TModel _original;
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
-            _model = ScriptableObject.Instantiate<T>(_original);
+            base.Awake();
+            _model = ScriptableObject.Instantiate<TModel>(_original);
         }
     }
 }

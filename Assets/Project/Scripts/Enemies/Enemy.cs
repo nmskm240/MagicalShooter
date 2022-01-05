@@ -6,9 +6,8 @@ using Shooting.Utils;
 namespace Shooting.Enemies
 {
     [RequireComponent(typeof(EnemyView), typeof(Rigidbody2D))]
-    public class Enemy : ScriptableObjectInstancePresenter<EnemyData>, IDamageable
+    public class Enemy : ScriptableObjectInstancePresenter<EnemyData, EnemyView>, IDamageable
     {
-        private EnemyView _view;
         private Rigidbody2D _rigidbody;
 
         public bool CanHit { get { return _model.CanHit; } }
@@ -16,7 +15,6 @@ namespace Shooting.Enemies
         protected override void Awake()
         {
             base.Awake();
-            _view = GetComponent<EnemyView>();
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
