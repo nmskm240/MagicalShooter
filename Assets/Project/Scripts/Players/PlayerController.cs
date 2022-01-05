@@ -7,7 +7,7 @@ using Shooting.Weapons;
 namespace Shooting.Ships
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class ShipController : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         [SerializeField]
         private Weapon _weapon;

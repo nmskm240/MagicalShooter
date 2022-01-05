@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Shooting.Ships
 {
-    [CreateAssetMenu(fileName = "ShipData", menuName = "Shooting/ShipData", order = 0)]
-    public class ShipData : ScriptableObject
+    [CreateAssetMenu(fileName = "PlayerData", menuName = "Shooting/PlayerData", order = 0)]
+    public class PlayerData : ScriptableObject
     {
         [SerializeField]
         private string _name;
