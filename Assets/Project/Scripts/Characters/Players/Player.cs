@@ -4,19 +4,13 @@ using UniRx;
 using UniRx.Triggers;
 using Shooting.Weapons;
 
-namespace Shooting.Ships
+namespace Shooting.Characters.Players
 {
-    [RequireComponent(typeof(Rigidbody2D))]
-    public class PlayerController : MonoBehaviour
+    [RequireComponent(typeof(Rigidbody2D), typeof(PlayerView))]
+    public class Player : Character<PlayerData, PlayerView>
     {
         [SerializeField]
         private Weapon _weapon;
-        protected Rigidbody2D _rigidbody;
-
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-        }
 
         private void Start()
         {
