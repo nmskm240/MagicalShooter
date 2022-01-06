@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 using UniRx;
 using UniRx.Triggers;
 using Shooting.Characters;
@@ -8,7 +9,7 @@ namespace Shooting.Bullets
     [RequireComponent(typeof(Rigidbody2D))]
     public class Bullet : MonoBehaviour
     {
-        [SerializeField]
+        [SerializeField]    
         private BulletData _model;
         private Rigidbody2D _rigidbody;
 
@@ -27,11 +28,7 @@ namespace Shooting.Bullets
                     damageable.TakeDamage(_model.Power);
                     Destroy(gameObject);
                 });
-            _model.OnMotionChanged
-                .Subscribe(motion =>
-                {
-                    _rigidbody.velocity = motion.Play(transform.up, _model.Speed);
-                });
+            _model.DoMove(transform);
         }
     }
 }
