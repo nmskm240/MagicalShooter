@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using DG.Tweening;
-using Motion = Shooting.Motions.Motion;
+using Shooting.Motions;
 
 namespace Shooting.Bullets
 {
@@ -20,16 +20,16 @@ namespace Shooting.Bullets
         [SerializeField]
         private float _speed;
         [SerializeField]
-        private List<Motion> _motions;
+        private List<MotionData> _motions;
         [NonSerialized]
-        private ReactiveProperty<Motion> _currentMotion = new ReactiveProperty<Motion>();
+        private ReactiveProperty<MotionData> _currentMotion = new ReactiveProperty<MotionData>();
 
         public string Name { get { return _name; } }
         public string Detail { get { return _detail; } }
         public int Power { get { return _power; } }
         public float Speed { get { return _speed; } }
-        public IEnumerable<Motion> Motions { get { return _motions; } }
-        public IObservable<Motion> OnMotionChanged { get { return _currentMotion; } }
+        public IEnumerable<MotionData> Motions { get { return _motions; } }
+        public IObservable<MotionData> OnMotionChanged { get { return _currentMotion; } }
 
         private void OnEnable()
         {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using DG.Tweening;
-using Motion = Shooting.Motions.Motion;
+using Shooting.Motions;
 
 namespace Shooting.Characters.Enemies
 {
@@ -12,12 +12,12 @@ namespace Shooting.Characters.Enemies
     public class EnemyData : CharacterData
     {
         [SerializeField]
-        private List<Motion> _motions;
+        private List<MotionData> _motions;
         [NonSerialized]
-        private ReactiveProperty<Motion> _currentMotion = new ReactiveProperty<Motion>();
+        private ReactiveProperty<MotionData> _currentMotion = new ReactiveProperty<MotionData>();
 
-        public IEnumerable<Motion> Motions { get { return _motions; } }
-        public IObservable<Motion> OnMotionChanged { get { return _currentMotion; } }
+        public IEnumerable<MotionData> Motions { get { return _motions; } }
+        public IObservable<MotionData> OnMotionChanged { get { return _currentMotion; } }
 
         protected override void OnEnable()
         {
