@@ -17,11 +17,14 @@ namespace Shooting.Motions
 
         public Sequence ToSequence(Transform transform, float speed)
         {
-            var path = _path.Select(path => (Vector3)(path * transform.up) + transform.position).ToArray();
+            var path = _path
+                .Select(path => (Vector3)(path * transform.up))
+                .ToArray();
             var playSpeed = _speed / speed;
             var sequence = DOTween.Sequence();
             sequence.Append(transform.DOPath(path, playSpeed, PathType.CatmullRom, PathMode.TopDown2D)
-                .SetEase(_ease));
+                .SetEase(_ease)
+                .SetRelative(true));
             return sequence;
         }
     }
