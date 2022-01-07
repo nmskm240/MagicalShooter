@@ -17,8 +17,4 @@ MonoBehaviour:
   _maxHP: 6
   _speed: 1
   _motions:
-  - id: 0
-  references:
-    version: 1
-    00000000:
-      type: {class: Straight, ns: Shooting.Motions, asm: Assembly-CSharp}
+  - {fileID: 11400000, guid: 43f6285d519e1be41a7866f0749d1908, type: 2}

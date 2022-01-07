@@ -9,14 +9,9 @@ namespace Shooting.Characters.Enemies
     {
         private void Start()
         {
-            var move = _model.OnMotionChanged
-                .Subscribe(motion =>
-                {
-                    _rigidbody.velocity = motion.Play(-transform.up, _model.Speed);
-                });
+            _model.DoMove(transform);
             _model.OnDead.Subscribe(_ =>
             {
-                move.Dispose();
                 _view.Explosion();
             });
         }

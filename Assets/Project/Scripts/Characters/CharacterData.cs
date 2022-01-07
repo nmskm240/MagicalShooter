@@ -7,21 +7,21 @@ namespace Shooting.Characters
     public abstract class CharacterData : ScriptableObject
     {
         [SerializeField]
-        private string _name;
+        protected string _name;
         [SerializeField, Multiline]
-        private string _detail;
+        protected string _detail;
         [SerializeField]
-        private int _maxHP;
+        protected int _maxHP;
         [SerializeField]
-        private float _speed;
+        protected float _speed;
         [NonSerialized]
-        private int _beforeHP;
+        protected int _beforeHP;
         [NonSerialized]
-        private ReactiveProperty<int> _currentHP = new ReactiveProperty<int>();
+        protected ReactiveProperty<int> _currentHP = new ReactiveProperty<int>();
         [NonSerialized]
-        private Subject<int> _onDamaged = new Subject<int>();
+        protected Subject<int> _onDamaged = new Subject<int>();
         [NonSerialized]
-        private Subject<Unit> _onDead = new Subject<Unit>();
+        protected Subject<Unit> _onDead = new Subject<Unit>();
 
         public string Name { get { return _name; } }
         public string Detail { get { return _detail; } }
