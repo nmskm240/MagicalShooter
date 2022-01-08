@@ -3,6 +3,7 @@ using DG.Tweening;
 using UniRx;
 using UniRx.Triggers;
 using Shooting.Characters;
+using Shooting.Motions;
 
 namespace Shooting.Bullets
 {
@@ -11,12 +12,6 @@ namespace Shooting.Bullets
     {
         [SerializeField]    
         private BulletData _model;
-        private Rigidbody2D _rigidbody;
-
-        private void Awake()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-        }
 
         private void Start()
         {

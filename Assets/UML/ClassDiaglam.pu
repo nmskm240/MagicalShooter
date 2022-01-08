@@ -1,0 +1,161 @@
+@startuml Shooting
+
+package Shooting
+{
+    package Bullets
+    {
+        class Bullet
+        {
+            -_model: BulletData
+        }
+        class BulletData
+        {
+            -_name: string
+            -_detail: stirng
+            -_power: int
+            -_speed: float
+            -_motions: List<MotionData>
+            +<<property>>Name: string { get only }
+            +<<property>>Detail: string { get only }
+            +<<property>>Power: int { get only }
+            +<<property>>Speed: float { get only }
+        }
+    }
+    package Characters
+    {
+        package Enemies
+        {
+            class Enemy<<EnemyData, EnemyView>>
+            class EnemyData
+            {
+                -_motions: List<MotionData>
+            }
+            class EnemyView
+        }
+        package Players
+        {
+            class Player<<PlayerData ,PlayerView>>
+            {
+                -_weapon: Weapon
+            }
+            class PlayerData
+            {
+                -_fireRate: float
+                +<<property>>Firerate: float { get only }
+            }
+            class PlayerView
+        }
+        abstract Character<TModel extends CharacterData, TView extends CharacterView>
+        {
+            -_rigidbody: Rigidboyd2D
+        }
+        abstract CharacterData
+        {
+            #_name: string
+            #_detail: string
+            #_maxHP: int
+            #_speed: float
+            #_beforeHP: int
+            #_currentHP: ReactiveProperty<int>
+            #_onDamaged: Subject<int>
+            #_onDead: Subject<Util>
+            +<<property>>Name: string { get only }
+            +<<property>>Detail: string { get only }
+            +<<property>>MaxHP: int { get only }
+            +<<property>>CurrentHP: int { get only }
+            +<<property>>Speed: float { get only }
+            +<<property>>OnChangedHP: IObservable<int> { get only }
+            +<<property>>OnDamaged: IObservable<int> { get only }
+            +<<property>>OnDead: IObservable<Util> { get only }
+            +Damage(power: int): void
+        }
+        abstract CharacterView
+        {
+            -_renderer: Spriterenderer
+            -_explosionParticle: ParticleSystem
+            +Explosion(): void
+        }
+        interface IDamageable
+        {
+            +<<property>>CanHit: bool { get only }
+            +TakeDamage(power: int): void
+        }
+    }
+    package Motions
+    {
+        class AutoMotionExtension<<(S,#FF7700) static>>
+        {
+            +{static}DoMove(transform: Transform): void
+        }
+        abstract MotionData
+        {
+            #_speed: float
+            #_ease: Ease
+            #ToSpeed(speed: float): float
+            +{abstract}ToSequence(transform: Transform, speed: float): Sequence
+        }
+        interface IAutoMotion
+        {
+            +<<property>>Speed: float { get only }
+            +<<property>>Motions: IEnumerable<MotionData> { get only }
+        }
+    }
+    package Utils
+    {
+        class Factory
+        {
+            -_origin: GameObject
+            +Create(): GameObject
+        }
+        abstract Presenter<TModel, TView extends MonoBehaviour>
+        {
+            #_model: TModel
+            #_view: TView
+        }
+        abstract ScriptableObjectInstancePresenter<TModel extends ScriptableObject, TView extends MonoBehaviour>
+        {
+            -_original: TModel
+        }
+    }
+    package Weapons
+    {
+        class Weapon
+        {
+            -_ports: List<Factory>
+            +Fire(): void
+        }
+    }
+}
+
+BulletData --|> ScriptableObject
+EnemyData --|> ScriptableObject
+PlayerData --|> ScriptableObject
+MotionData --|> ScriptableObject
+ScriptableObjectInstancePresenter -up-|> Presenter
+Character -up-|> ScriptableObjectInstancePresenter
+Enemy -up-|> Character
+EnemyData -up-|> CharacterData
+EnemyView -up-|> CharacterView
+Player -up-|> Character
+PlayerData -up-|> CharacterData
+PlayerView -up-|> CharacterView
+
+Character .up.|> IDamageable
+BulletData ..|> IAutoMotion
+EnemyData ..|> IAutoMotion
+
+Player *-- Weapon
+IAutoMotion *-- MotionData
+
+Bullet *--> BulletData
+Character *--> CharacterData
+Character *--> CharacterView
+Enemy *--> EnemyData
+Enemy *--> EnemyView
+Player *--> PlayerData
+Player *--> PlayerView
+
+Bullet --> IDamageable : use
+AutoMotionExtension --> IAutoMotion : Extension
+
+@enduml

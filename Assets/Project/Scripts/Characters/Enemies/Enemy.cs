@@ -1,5 +1,6 @@
 using UnityEngine;
 using UniRx;
+using Shooting.Motions;
 using Shooting.Utils;
 
 namespace Shooting.Characters.Enemies
