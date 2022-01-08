@@ -46,9 +46,6 @@ package Shooting
             class PlayerView
         }
         abstract Character<TModel extends CharacterData, TView extends CharacterView>
-        {
-            -_rigidbody: Rigidboyd2D
-        }
         abstract CharacterData
         {
             #_name: string
