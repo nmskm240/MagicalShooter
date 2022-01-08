@@ -10,7 +10,7 @@ namespace Shooting.Bullets
     [RequireComponent(typeof(Rigidbody2D))]
     public class Bullet : MonoBehaviour
     {
-        [SerializeField]    
+        [SerializeField]
         private BulletData _model;
 
         private void Start()
