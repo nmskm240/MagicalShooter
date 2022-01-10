@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 using UniRx;
 using UniRx.Triggers;
 using Shooting.Motions;
@@ -21,6 +22,8 @@ namespace Shooting.Characters.Enemies
                     damageable.TakeDamage(1);
                 });
             _model.DoMove(transform, -transform.right);
+            _model.OnDead
+                .Subscribe(_ => _model.NowMotion.Kill());
         }
     }
 }

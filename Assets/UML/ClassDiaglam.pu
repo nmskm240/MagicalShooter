@@ -95,6 +95,7 @@ package Shooting
         {
             +<<property>>Speed: float { get only }
             +<<property>>Motions: IEnumerable<MotionData> { get only }
+            +<<property>>NowMotion: Sequence { get only }
         }
     }
     package Utils
