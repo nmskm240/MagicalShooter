@@ -4,10 +4,14 @@ namespace Shooting.Characters
 {
     public abstract class CharacterView : MonoBehaviour
     {
-        [SerializeField]
         private SpriteRenderer _renderer;
         [SerializeField]
         private ParticleSystem _explosionParticle;
+
+        private void Awake()
+        {
+            _renderer = GetComponent<SpriteRenderer>();
+        }
 
         public void Explosion()
         {
