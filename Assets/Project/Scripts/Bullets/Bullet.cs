@@ -23,7 +23,7 @@ namespace Shooting.Bullets
                     damageable.TakeDamage(_model.Power);
                     Destroy(gameObject);
                 });
-            _model.DoMove(transform);
+            _model.DoMove(transform, transform.right);
         }
     }
 }
