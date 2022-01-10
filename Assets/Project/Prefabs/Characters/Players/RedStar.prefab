@@ -67,9 +67,41 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4937224043337746406, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5285785165156921272, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6440933887890176550, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
       propertyPath: m_Name
       value: RedStar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440933887890176550, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440933887890176550, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6608474258427990211, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7573642126970419572, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197463459380271976, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573818347564292105, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
@@ -154,9 +186,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2059554885682318461}
     m_Modifications:
+    - target: {fileID: 698315327610784567, guid: 72cfc2959687d3141a625565dd7171f4, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5273430654984064921, guid: 72cfc2959687d3141a625565dd7171f4, type: 3}
       propertyPath: m_Name
       value: DualShooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 5273430654984064921, guid: 72cfc2959687d3141a625565dd7171f4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5494547895050064563, guid: 72cfc2959687d3141a625565dd7171f4, type: 3}
       propertyPath: m_RootOrder
@@ -201,6 +241,10 @@ PrefabInstance:
     - target: {fileID: 5494547895050064563, guid: 72cfc2959687d3141a625565dd7171f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8649058256379031339, guid: 72cfc2959687d3141a625565dd7171f4, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72cfc2959687d3141a625565dd7171f4, type: 3}

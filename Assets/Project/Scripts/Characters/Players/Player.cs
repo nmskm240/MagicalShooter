@@ -12,8 +12,9 @@ namespace Shooting.Characters.Players
         [SerializeField]
         private Weapon _weapon;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             var min = Camera.main.ViewportToWorldPoint(Vector2.zero);
             var max = Camera.main.ViewportToWorldPoint(Vector2.one);
             var moveInputStream = this.UpdateAsObservable()
