@@ -17,6 +17,6 @@ namespace Shooting.Motions
             return _speed / speed;
         }
 
-        public abstract Sequence ToSequence(Transform transform, float speed);
+        public abstract Sequence ToSequence(Transform transform, Vector2 forward, float speed);
     }
 }

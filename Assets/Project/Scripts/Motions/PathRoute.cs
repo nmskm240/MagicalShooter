@@ -11,7 +11,7 @@ namespace Shooting.Motions
         [SerializeField]
         private List<Vector2> _path;
 
-        public override Sequence ToSequence(Transform transform, float speed)
+        public override Sequence ToSequence(Transform transform, Vector2 forward, float speed)
         {
             var path = _path
                 .Select(path => (Vector3)(path * transform.up))

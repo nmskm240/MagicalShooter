@@ -5,16 +5,16 @@ namespace Shooting.Motions
 {
     public static class AutoMotionExtensiton
     {
-        public static void DoMove(this IAutoMotion autoMotion, Transform transform)
+        public static void DoMove(this IAutoMotion autoMotion, Transform transform, Vector2 forward)
         {
             var sequence = DOTween.Sequence();
             foreach (var motion in autoMotion.Motions)
             {
-                sequence.Append(motion.ToSequence(transform, autoMotion.Speed));
+                sequence.Append(motion.ToSequence(transform, forward, autoMotion.Speed));
             }
             sequence
                 .Play()
-                .OnComplete(() => autoMotion.DoMove(transform));
+                .OnComplete(() => autoMotion.DoMove(transform, forward));
         }
     }
 }

@@ -12,7 +12,6 @@ namespace Shooting.Characters.Enemies
         protected override void Start()
         {
             base.Start();
-            _model.DoMove(transform);
             this.OnTriggerEnter2DAsObservable()
                 .Where(collider => collider.gameObject.CompareTag("Player"))
                 .Select(collider => collider.gameObject.GetComponent<IDamageable>())
@@ -21,7 +20,7 @@ namespace Shooting.Characters.Enemies
                 {
                     damageable.TakeDamage(1);
                 });
-            _model.DoMove(transform);
+            _model.DoMove(transform, -transform.right);
         }
     }
 }
