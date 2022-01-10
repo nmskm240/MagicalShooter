@@ -15,5 +15,6 @@ namespace Shooting.Characters.Enemies
         private List<MotionData> _motions;
 
         public IEnumerable<MotionData> Motions { get { return _motions; } }
+        public Sequence NowMotion { get; set; }
     }
 }

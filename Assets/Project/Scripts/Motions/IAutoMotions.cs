@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 
 namespace Shooting.Motions
 {
@@ -6,5 +7,6 @@ namespace Shooting.Motions
     {
         float Speed { get; }
         IEnumerable<MotionData> Motions { get; }
+        Sequence NowMotion { get; set; }
     }
 }

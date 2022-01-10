@@ -27,5 +27,6 @@ namespace Shooting.Bullets
         public int Power { get { return _power; } }
         public float Speed { get { return _speed; } }
         public IEnumerable<MotionData> Motions { get { return _motions; } }
+        public Sequence NowMotion { get; set; }
     }
 }

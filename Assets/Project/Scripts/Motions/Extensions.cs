@@ -12,6 +12,7 @@ namespace Shooting.Motions
             {
                 sequence.Append(motion.ToSequence(transform, forward, autoMotion.Speed));
             }
+            autoMotion.NowMotion = sequence;
             sequence
                 .Play()
                 .OnComplete(() => autoMotion.DoMove(transform, forward));
