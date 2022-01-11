@@ -194,7 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a8848fb0e96e6418132324a75acdc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _renderer: {fileID: 0}
   _explosionParticle: {fileID: 2421574002761504754}
 --- !u!114 &5256814094982764658
 MonoBehaviour:
@@ -209,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _original: {fileID: 11400000, guid: f4a053bbac091b449bac1144505c2334, type: 2}
-  _weapon: {fileID: 2957371554531652662}
+  _spell: {fileID: 2957371554531652662}
 --- !u!1001 &4268417653152571177
 PrefabInstance:
   m_ObjectHideFlags: 0
