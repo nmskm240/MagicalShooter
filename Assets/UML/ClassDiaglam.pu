@@ -36,7 +36,7 @@ package Shooting
         {
             class Player<<PlayerData ,PlayerView>>
             {
-                -_weapon: Weapon
+                -_spell: Spell
             }
             class PlayerData
             {
@@ -115,9 +115,9 @@ package Shooting
             -_original: TModel
         }
     }
-    package Weapons
+    package Spells
     {
-        class Weapon
+        class Spell
         {
             -_ports: List<Factory>
             +Fire(): void
@@ -142,7 +142,7 @@ Character .up.|> IDamageable
 BulletData ..|> IAutoMotion
 EnemyData ..|> IAutoMotion
 
-Player *-- Weapon
+Player *-- Spell
 IAutoMotion *-- MotionData
 
 Bullet *--> BulletData

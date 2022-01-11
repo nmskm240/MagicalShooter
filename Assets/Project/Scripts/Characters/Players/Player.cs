@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
-using Shooting.Weapons;
+using Shooting.Spells;
 
 namespace Shooting.Characters.Players
 {
@@ -10,7 +10,7 @@ namespace Shooting.Characters.Players
     public class Player : Character<PlayerData, PlayerView>
     {
         [SerializeField]
-        private Weapon _weapon;
+        private Spell _spell;
 
         protected override void Start()
         {
@@ -35,7 +35,7 @@ namespace Shooting.Characters.Players
             this.UpdateAsObservable()
                 .Where(_ => Input.GetKey(KeyCode.Space))
                 .ThrottleFirst(TimeSpan.FromSeconds(0.5f))
-                .Subscribe(_ => _weapon.Fire());
+                .Subscribe(_ => _spell.Fire());
         }
     }
 }
