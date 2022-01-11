@@ -12,18 +12,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1105406887843888582, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1105406887843888582, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1105406887843888582, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1105406887843888582, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -83,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6222067074058326004, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6440933887890176550, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -130,16 +122,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6440933887890176550, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
   m_PrefabInstance: {fileID: 8838389725997526472}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &888360300967933377 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8573818347564292105, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
-  m_PrefabInstance: {fileID: 8838389725997526472}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &5127900339348016329 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 4432019841447813377, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
-  m_PrefabInstance: {fileID: 8838389725997526472}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &5256087715620277121 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 3627960993043981897, guid: ed5d6e54a8e604948894187bd67a1d56, type: 3}
@@ -157,7 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91665dad23022645830098e8b24a28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _renderer: {fileID: 5127900339348016329}
   _explosionParticle: {fileID: 5256087715620277121}
 --- !u!114 &4817486015500536831
 MonoBehaviour:
@@ -172,13 +153,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _original: {fileID: 0}
---- !u!114 &5569432124814893923
+--- !u!114 &6623851555330832050
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 888360300967933377}
+  m_GameObject: {fileID: 2579031645893122030}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b6bd49009b51ae4297fb37c7194e26c, type: 3}
