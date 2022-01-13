@@ -18,8 +18,8 @@ package Shooting
             -_motions: List<MotionData>
             +<<property>>Name: string { get only }
             +<<property>>Detail: string { get only }
-            +<<property>>Power: int { get only }
-            +<<property>>Speed: float { get only }
+            +<<property>>Power: int
+            +<<property>>Speed: float
             +<<property>>Motions: IEnumerable<MotionData>
         }
         class BulletDataSet
@@ -112,23 +112,25 @@ package Shooting
         class SpellBulletInfo<<private>>
         {
             -_dataSet; BulletDataSet
+            -_speed: float
+            -_power: int
             -_motions: List<MotionData>
             +<<property>>DataSet: BulletDataSet { get only }
+            +<<property>>Speed: float { get only }
+            +<<property>>Power: int { get only }
             +<<property>>Motions: IEnumerable<MotionData> { get only }
         }
-        class Spell
-        {
-            -_model: SpellData
-            +Active(): void
-        }
-        class SpellData
+        abstract Spell
         {
             -_name: string
             -_detail: string
+            -_castingTime: float
             -_bulletInfos: List<SpellBulletInfo>
             +<<property>>Name: string { get only }
             +<<property>>Detail: string { get only }
+            +<<property>>CastingTime { get only }
             +<<property>>Bullets: IEnumerable<GameObject> { get only }
+            +{abstract}Active(shooter: GameObject): void
         }
     }
     package Utils
@@ -155,7 +157,7 @@ BulletDataSet --|> ScriptableObject
 EnemyData --|> ScriptableObject
 PlayerData --|> ScriptableObject
 MotionData --|> ScriptableObject
-SpellData --|> ScriptableObject
+Spell --|> ScriptableObject
 ScriptableObjectInstancePresenter -up-|> Presenter
 Character -up-|> ScriptableObjectInstancePresenter
 Enemy -up-|> Character
@@ -180,13 +182,12 @@ Enemy *--> EnemyData
 Enemy *--> EnemyView
 Player *--> PlayerData
 Player *--> PlayerView
-Spell *--> SpellData
 SpellBulletInfo *--> BulletDataSet
 
 BulletDataSet --> Bullet : set model
 Bullet --> IDamageable : use
 AutoMotionExtension --> IAutoMotion : Extension
 
-SpellData +-- SpellBulletInfo
+Spell +-- SpellBulletInfo
 
 @enduml

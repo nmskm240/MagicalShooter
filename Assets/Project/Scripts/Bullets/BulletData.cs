@@ -15,20 +15,26 @@ namespace Shooting.Bullets
         private string _name;
         [SerializeField, Multiline]
         private string _detail;
-        [SerializeField]
         private int _power;
-        [SerializeField]
         private float _speed;
         private List<MotionData> _motions;
 
         public string Name { get { return _name; } }
         public string Detail { get { return _detail; } }
-        public int Power { get { return _power; } }
-        public float Speed { get { return _speed; } }
+        public int Power
+        {
+            get { return _power; }
+            set { _power = value; }
+        }
+        public float Speed
+        {
+            get { return _speed; }
+            set { _speed = value; }
+        }
         public IEnumerable<MotionData> Motions
         {
             get { return _motions; }
-            set 
+            set
             {
                 _motions.Clear();
                 _motions.AddRange(value);

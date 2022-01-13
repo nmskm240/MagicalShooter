@@ -34,8 +34,8 @@ namespace Shooting.Characters.Players
 
             this.UpdateAsObservable()
                 .Where(_ => Input.GetKey(KeyCode.Space))
-                .ThrottleFirst(TimeSpan.FromSeconds(0.5f))
-                .Subscribe(_ => _spell.Active());
+                .ThrottleFirst(TimeSpan.FromSeconds(_spell.CastingTime))
+                .Subscribe(_ => _spell.Active(gameObject));
         }
     }
 }
