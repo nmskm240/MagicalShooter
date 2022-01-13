@@ -7,6 +7,7 @@ package Shooting
         class Bullet
         {
             -_model: BulletData
+            +Init(model: BulletData):void
         }
         class BulletData
         {
@@ -19,6 +20,14 @@ package Shooting
             +<<property>>Detail: string { get only }
             +<<property>>Power: int { get only }
             +<<property>>Speed: float { get only }
+            +<<property>>Motions: IEnumerable<MotionData>
+        }
+        class BulletDataSet
+        {
+            -_prefab: GameObject
+            -_model: BulletData
+            +<<property>>Prefab: GameObject
+            +<<property>>Model: BulletData
         }
     }
     package Characters
@@ -98,6 +107,30 @@ package Shooting
             +<<property>>NowMotion: Sequence { get only }
         }
     }
+    package Spells
+    {
+        class SpellBulletInfo<<private>>
+        {
+            -_dataSet; BulletDataSet
+            -_motions: List<MotionData>
+            +<<property>>DataSet: BulletDataSet { get only }
+            +<<property>>Motions: IEnumerable<MotionData> { get only }
+        }
+        class Spell
+        {
+            -_model: SpellData
+            +Active(): void
+        }
+        class SpellData
+        {
+            -_name: string
+            -_detail: string
+            -_bulletInfos: List<SpellBulletInfo>
+            +<<property>>Name: string { get only }
+            +<<property>>Detail: string { get only }
+            +<<property>>Bullets: IEnumerable<GameObject> { get only }
+        }
+    }
     package Utils
     {
         class Factory
@@ -115,20 +148,14 @@ package Shooting
             -_original: TModel
         }
     }
-    package Spells
-    {
-        class Spell
-        {
-            -_ports: List<Factory>
-            +Fire(): void
-        }
-    }
 }
 
 BulletData --|> ScriptableObject
+BulletDataSet --|> ScriptableObject
 EnemyData --|> ScriptableObject
 PlayerData --|> ScriptableObject
 MotionData --|> ScriptableObject
+SpellData --|> ScriptableObject
 ScriptableObjectInstancePresenter -up-|> Presenter
 Character -up-|> ScriptableObjectInstancePresenter
 Enemy -up-|> Character
@@ -146,14 +173,20 @@ Player *-- Spell
 IAutoMotion *-- MotionData
 
 Bullet *--> BulletData
+BulletDataSet *--> BulletData
 Character *--> CharacterData
 Character *--> CharacterView
 Enemy *--> EnemyData
 Enemy *--> EnemyView
 Player *--> PlayerData
 Player *--> PlayerView
+Spell *--> SpellData
+SpellBulletInfo *--> BulletDataSet
 
+BulletDataSet --> Bullet : set model
 Bullet --> IDamageable : use
 AutoMotionExtension --> IAutoMotion : Extension
+
+SpellData +-- SpellBulletInfo
 
 @enduml

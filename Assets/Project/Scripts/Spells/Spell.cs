@@ -1,20 +1,18 @@
-using System.Linq;
-using System.Collections.Generic;
 using UnityEngine;
-using Shooting.Utils;
 
 namespace Shooting.Spells
 {
     public class Spell : MonoBehaviour
     {
         [SerializeField]
-        private List<Factory> _ports;
-        
-        public void Fire()
+        private SpellData _model;
+
+        public void Active()
         {
-            foreach (var bullet in _ports.Select(port => port.Create()))
+            foreach (var bullet in _model.Bullets)
             {
                 bullet.transform.parent = null;
+                bullet.transform.position = transform.position;
             }
         }
     }

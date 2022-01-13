@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UniRx;
@@ -24,6 +25,11 @@ namespace Shooting.Bullets
                     Destroy(gameObject);
                 });
             _model.DoMove(transform, transform.right);
+        }
+
+        public void Init(BulletData model)
+        {
+            _model = model;
         }
     }
 }
