@@ -12,19 +12,16 @@ namespace Shooting.Spells
         [SerializeField, Range(0, 360)]
         private float _angle;
 
-        public override void Active(GameObject activator)
+        protected override void OnActived(GameObject activator)
         {
-            var y = activator.CompareTag("Player") ? 0.0f : 180.0f;
             var angleRange = Mathf.Deg2Rad * _angle;
-            var bulletLayer = LayerMask.NameToLayer(activator.tag + "sBullet");
             for(var i = 0; i < _wayNumber; i++)
             {
                 var index = BulletCount % (i + 1);
-                var bullet = Bullets.ElementAtOrDefault(Mathf.Clamp(index, 0, BulletCount - 1));
+                var bullet = CreateBulletAt(index);
                 var span = angleRange / (_wayNumber - 1);
                 var baseAngle = 0.5f * angleRange;
                 var theta = span * i - baseAngle;
-                bullet.layer = bulletLayer;
                 bullet.transform.position = activator.transform.position;
                 bullet.transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * theta, Vector3.forward);
                 bullet.transform.parent = null;
