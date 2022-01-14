@@ -52,6 +52,7 @@ namespace Shooting.Spells
                 });
             }
         }
+        public int BulletCount { get { return _bulletInfos.Count(); } }
 
         public abstract void Active(GameObject shooter);
     }
