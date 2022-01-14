@@ -10,7 +10,7 @@ namespace Shooting.Bullets
         [SerializeField]
         private BulletData _model;
 
-        public GameObject Prefab { get { return Instantiate(_prefab); } }
+        public GameObject Prefab { get { return _prefab; } }
         public BulletData Model { get { return _model; } }
 
         private void OnEnable()

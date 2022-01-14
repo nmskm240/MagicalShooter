@@ -13,8 +13,4 @@ MonoBehaviour:
   m_Name: FireBall
   m_EditorClassIdentifier: 
   _name: "\u30D5\u30A1\u30A4\u30E4\u30FC\u30DC\u30FC\u30EB"
-  _detail: 
-  _power: 3
-  _speed: 2.5
-  _motions:
-  - {fileID: 11400000, guid: 43f6285d519e1be41a7866f0749d1908, type: 2}
+  _detail: "\u306A\u3093\u306E\u5909\u54F2\u3082\u306A\u3044\u706B\u306E\u7389"

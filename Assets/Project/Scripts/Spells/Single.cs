@@ -5,11 +5,12 @@ namespace Shooting.Spells
     [CreateAssetMenu(fileName = "Spell", menuName = "Shooting/Spell/Single", order = 0)]
     public class Single : Spell
     {
-        public override void Active(GameObject shooter)
+        protected override void OnActived(GameObject activator)
         {
-            foreach(var bullet in Bullets)
+            for(var i = 0; i < BulletCount; i++)
             {
-                bullet.transform.position = shooter.transform.position;
+                var bullet = CreateBulletAt(i);
+                bullet.transform.position = activator.transform.position;
                 bullet.transform.parent = null;
             }
         }

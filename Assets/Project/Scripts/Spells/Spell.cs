@@ -34,26 +34,32 @@ namespace Shooting.Spells
         private float _castingTime;
         [SerializeField]
         private List<SpellBulletInfo> _bulletInfos;
+        private int _layer;
 
         public string Name { get { return _name; } }
         public string Detail { get { return _detail; } }
         public float CastingTime { get { return _castingTime; } }
-        public IEnumerable<GameObject> Bullets
-        {
-            get
-            {
-                return _bulletInfos.Select(info =>
-                {
-                    var dataSet = Instantiate(info.DataSet);
-                    dataSet.Model.Motions = info.Motions;
-                    dataSet.Model.Power = info.Power;
-                    dataSet.Model.Speed = info.Speed;
-                    return dataSet.Prefab;
-                });
-            }
-        }
         public int BulletCount { get { return _bulletInfos.Count(); } }
 
-        public abstract void Active(GameObject shooter);
+        protected abstract void OnActived(GameObject activator);
+
+        protected GameObject CreateBulletAt(int index)
+        {
+            var clamped = Mathf.Clamp(index, 0, BulletCount - 1);
+            var element = _bulletInfos.ElementAt(clamped);
+            var dataSet = Instantiate(element.DataSet);
+            var info = _bulletInfos.ElementAt(clamped);
+            dataSet.Model.Motions = info.Motions;
+            dataSet.Model.Power = info.Power;
+            dataSet.Model.Speed = info.Speed;
+            dataSet.Prefab.layer = _layer;
+            return Instantiate(dataSet.Prefab);
+        }
+
+        public void Active(GameObject activator)
+        {
+            _layer = LayerMask.NameToLayer(activator.tag + "sBullet");
+            OnActived(activator);
+        }
     }
 }

@@ -129,8 +129,10 @@ package Shooting
             +<<property>>Name: string { get only }
             +<<property>>Detail: string { get only }
             +<<property>>CastingTime { get only }
-            +<<property>>Bullets: IEnumerable<GameObject> { get only }
-            +{abstract}Active(shooter: GameObject): void
+            +<<property>>BulletCount: int { get only }
+            #{abstract}OnActived(activator: GameObject): void
+            #CreateBulletAt(index: int): GameObject
+            +Active(activator): void
         }
     }
     package Utils
