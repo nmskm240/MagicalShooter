@@ -17,7 +17,7 @@ namespace Shooting.Bullets
         private string _detail;
         private int _power;
         private float _speed;
-        private List<MotionData> _motions;
+        private List<MotionData> _motions = new List<MotionData>();
 
         public string Name { get { return _name; } }
         public string Detail { get { return _detail; } }
@@ -41,10 +41,5 @@ namespace Shooting.Bullets
             }
         }
         public Sequence NowMotion { get; set; }
-
-        private void OnEnable()
-        {
-            _motions = new List<MotionData>();
-        }
     }
 }

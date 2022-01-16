@@ -47,13 +47,15 @@ namespace Shooting.Spells
         {
             var clamped = Mathf.Clamp(index, 0, BulletCount - 1);
             var element = _bulletInfos.ElementAt(clamped);
-            var dataSet = Instantiate(element.DataSet);
+            var bullet = Instantiate(element.DataSet.Prefab);
+            var model = Instantiate(element.DataSet.Model);
             var info = _bulletInfos.ElementAt(clamped);
-            dataSet.Model.Motions = info.Motions;
-            dataSet.Model.Power = info.Power;
-            dataSet.Model.Speed = info.Speed;
-            dataSet.Prefab.layer = _layer;
-            return Instantiate(dataSet.Prefab);
+            model.Motions = info.Motions;
+            model.Power = info.Power;
+            model.Speed = info.Speed;
+            bullet.layer = _layer;
+            bullet.GetComponent<Bullet>().Init(model);
+            return bullet;
         }
 
         public void Active(GameObject activator)

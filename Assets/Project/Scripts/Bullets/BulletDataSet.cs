@@ -12,10 +12,5 @@ namespace Shooting.Bullets
 
         public GameObject Prefab { get { return _prefab; } }
         public BulletData Model { get { return _model; } }
-
-        private void OnEnable()
-        {
-            _prefab.GetComponent<Bullet>().Init(_model);
-        }
     }
 }

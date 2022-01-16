@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1184092601451992400}
   - component: {fileID: 684491398564894756}
   - component: {fileID: 3807069342719521411}
-  - component: {fileID: 3613525011492454779}
   - component: {fileID: 635996930180456814}
-  m_Layer: 8
+  - component: {fileID: 3613525011492454779}
+  m_Layer: 9
   m_Name: FireBall
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -136,19 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6bd49009b51ae4297fb37c7194e26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3613525011492454779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5312218552844099529}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172c9a6e20cc8754d90ad05c11b0960d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _model: {fileID: 11400000, guid: bef5b302db449224db0e578dcb9e0562, type: 2}
 --- !u!114 &635996930180456814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,5 +146,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b8024bcf53c2894bace30e29d661bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3613525011492454779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312218552844099529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172c9a6e20cc8754d90ad05c11b0960d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
