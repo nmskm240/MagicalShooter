@@ -3,7 +3,7 @@ using UniRx;
 
 namespace Shooting.Characters
 {
-    public abstract class Character<TModel, TView> : Presenter<TModel, TView>, IDamageable
+    public abstract class Character<TModel, TView> : ScriptableObjectPresenter<TModel, TView>, IDamageable
         where TModel : CharacterData
         where TView : CharacterView
     {
