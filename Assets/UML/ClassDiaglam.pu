@@ -29,6 +29,10 @@ package Shooting
             +<<property>>Prefab: GameObject
             +<<property>>Model: BulletData
         }
+        class BulletView
+        {
+            +ChangeBaseAngle(): void
+        }
     }
     package Characters
     {
@@ -135,11 +139,14 @@ package Shooting
             +Active(activator): void
         }
     }
-    abstract Presenter<TModel extends ScriptableObject, TView extends MonoBehaviour>
+    abstract Presenter<TModel, TView extends MonoBehaviour>
     {
-        -_original: TModel
         #_model: TModel
         #_view: TView
+    }
+    abstract ScriptableObjectPresenter<TModel extends ScriptableObject, TView extends MonoBehaviour>
+    {
+        -_original: TModel
     }
 }
 
@@ -149,7 +156,9 @@ EnemyData --|> ScriptableObject
 PlayerData --|> ScriptableObject
 MotionData --|> ScriptableObject
 Spell --|> ScriptableObject
-Character -up-|> Presenter
+ScriptableObjectPresenter -up-|> Presenter
+Character -up-|> ScriptableObjectPresenter
+Bullet -up-|> Presenter
 Enemy -up-|> Character
 EnemyData -up-|> CharacterData
 EnemyView -up-|> CharacterView
@@ -165,6 +174,7 @@ Player *-- Spell
 IAutoMotion *-- MotionData
 
 Bullet *--> BulletData
+Bullet *--> BulletView
 BulletDataSet *--> BulletData
 Character *--> CharacterData
 Character *--> CharacterView
