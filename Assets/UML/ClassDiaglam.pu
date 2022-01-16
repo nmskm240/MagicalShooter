@@ -135,22 +135,11 @@ package Shooting
             +Active(activator): void
         }
     }
-    package Utils
+    abstract Presenter<TModel extends ScriptableObject, TView extends MonoBehaviour>
     {
-        class Factory
-        {
-            -_origin: GameObject
-            +Create(): GameObject
-        }
-        abstract Presenter<TModel, TView extends MonoBehaviour>
-        {
-            #_model: TModel
-            #_view: TView
-        }
-        abstract ScriptableObjectInstancePresenter<TModel extends ScriptableObject, TView extends MonoBehaviour>
-        {
-            -_original: TModel
-        }
+        -_original: TModel
+        #_model: TModel
+        #_view: TView
     }
 }
 
@@ -160,8 +149,7 @@ EnemyData --|> ScriptableObject
 PlayerData --|> ScriptableObject
 MotionData --|> ScriptableObject
 Spell --|> ScriptableObject
-ScriptableObjectInstancePresenter -up-|> Presenter
-Character -up-|> ScriptableObjectInstancePresenter
+Character -up-|> Presenter
 Enemy -up-|> Character
 EnemyData -up-|> CharacterData
 EnemyView -up-|> CharacterView

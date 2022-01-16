@@ -1,10 +1,9 @@
 using UnityEngine;
 using UniRx;
-using Shooting.Utils;
 
 namespace Shooting.Characters
 {
-    public abstract class Character<TModel, TView> : ScriptableObjectInstancePresenter<TModel, TView>, IDamageable
+    public abstract class Character<TModel, TView> : Presenter<TModel, TView>, IDamageable
         where TModel : CharacterData
         where TView : CharacterView
     {
