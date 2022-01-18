@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UniRx;
+using Shooting.Spells;
 
 namespace Shooting.Characters
 {
@@ -14,6 +15,8 @@ namespace Shooting.Characters
         protected int _maxHP;
         [SerializeField]
         protected float _speed;
+        [SerializeField]
+        protected Spell _spell;
         [NonSerialized]
         protected int _beforeHP;
         [NonSerialized]
@@ -28,6 +31,7 @@ namespace Shooting.Characters
         public int MaxHP { get { return _maxHP; } }
         public int CurrentHP { get { return _currentHP.Value; } }
         public float Speed { get { return _speed; } }
+        public Spell Spell { get { return _spell; } }
         public IObservable<int> OnChangedHP { get { return _currentHP; } }
         public IObservable<int> OnDamaged { get { return _onDamaged; } }
         public IObservable<Unit> OnDead { get { return _onDead; } }

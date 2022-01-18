@@ -16,4 +16,5 @@ MonoBehaviour:
   _detail: 
   _maxHP: 1
   _speed: 1
+  _spell: {fileID: 11400000, guid: 40542c79edc1d4c46b1bf1eac564bd23, type: 2}
   _fireRate: 1
