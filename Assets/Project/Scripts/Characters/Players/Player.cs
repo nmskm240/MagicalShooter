@@ -2,16 +2,12 @@ using System;
 using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
-using Shooting.Spells;
 
 namespace Shooting.Characters.Players
 {
     [RequireComponent(typeof(PlayerView))]
     public class Player : Character<PlayerData, PlayerView>
     {
-        [SerializeField]
-        private Spell _spell;
-
         protected override void Start()
         {
             base.Start();
@@ -34,8 +30,8 @@ namespace Shooting.Characters.Players
 
             this.UpdateAsObservable()
                 .Where(_ => Input.GetKey(KeyCode.Space))
-                .ThrottleFirst(TimeSpan.FromSeconds(_spell.CastingTime))
-                .Subscribe(_ => _spell.Active(gameObject));
+                .ThrottleFirst(TimeSpan.FromSeconds(_model.Spell.CastingTime))
+                .Subscribe(_ => _model.Spell.Active(gameObject));
         }
     }
 }

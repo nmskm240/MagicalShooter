@@ -16,5 +16,6 @@ MonoBehaviour:
   _detail: 
   _maxHP: 3
   _speed: 1
+  _spell: {fileID: 11400000, guid: 40542c79edc1d4c46b1bf1eac564bd23, type: 2}
   _motions:
   - {fileID: 11400000, guid: 43f6285d519e1be41a7866f0749d1908, type: 2}

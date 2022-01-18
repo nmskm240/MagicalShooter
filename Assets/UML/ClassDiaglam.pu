@@ -48,14 +48,7 @@ package Shooting
         package Players
         {
             class Player<<PlayerData ,PlayerView>>
-            {
-                -_spell: Spell
-            }
             class PlayerData
-            {
-                -_fireRate: float
-                +<<property>>Firerate: float { get only }
-            }
             class PlayerView
         }
         abstract Character<TModel extends CharacterData, TView extends CharacterView>
@@ -65,6 +58,7 @@ package Shooting
             #_detail: string
             #_maxHP: int
             #_speed: float
+            #_spell: Spell
             #_beforeHP: int
             #_currentHP: ReactiveProperty<int>
             #_onDamaged: Subject<int>
@@ -74,6 +68,7 @@ package Shooting
             +<<property>>MaxHP: int { get only }
             +<<property>>CurrentHP: int { get only }
             +<<property>>Speed: float { get only }
+            +<<property>>Spell: Spell { get only }
             +<<property>>OnChangedHP: IObservable<int> { get only }
             +<<property>>OnDamaged: IObservable<int> { get only }
             +<<property>>OnDead: IObservable<Util> { get only }
@@ -170,7 +165,7 @@ Character .up.|> IDamageable
 BulletData ..|> IAutoMotion
 EnemyData ..|> IAutoMotion
 
-Player *-- Spell
+CharacterData *-- Spell
 IAutoMotion *-- MotionData
 
 Bullet *--> BulletData

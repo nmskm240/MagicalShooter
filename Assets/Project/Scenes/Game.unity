@@ -547,6 +547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patapata
       objectReference: {fileID: 0}
+    - target: {fileID: 8455796465507581424, guid: 598ce39b35045254999ef31cdc35a5bb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 598ce39b35045254999ef31cdc35a5bb, type: 3}
 --- !u!1 &610485487
