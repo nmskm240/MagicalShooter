@@ -1,0 +1,193 @@
+@startuml Shooting
+
+package Shooting
+{
+    package Bullets
+    {
+        class Bullet
+        {
+            -_model: BulletData
+            +Init(model: BulletData):void
+        }
+        class BulletData
+        {
+            -_name: string
+            -_detail: stirng
+            -_power: int
+            -_speed: float
+            -_motions: List<MotionData>
+            +<<property>>Name: string { get only }
+            +<<property>>Detail: string { get only }
+            +<<property>>Power: int
+            +<<property>>Speed: float
+            +<<property>>Motions: IEnumerable<MotionData>
+        }
+        class BulletDataSet
+        {
+            -_prefab: GameObject
+            -_model: BulletData
+            +<<property>>Prefab: GameObject
+            +<<property>>Model: BulletData
+        }
+        class BulletView
+        {
+            +ChangeBaseAngle(): void
+        }
+    }
+    package Characters
+    {
+        package Enemies
+        {
+            class Enemy<<EnemyData, EnemyView>>
+            class EnemyData
+            {
+                -_motions: List<MotionData>
+            }
+            class EnemyView
+        }
+        package Players
+        {
+            class Player<<PlayerData ,PlayerView>>
+            class PlayerData
+            class PlayerView
+        }
+        abstract Character<TModel extends CharacterData, TView extends CharacterView>
+        abstract CharacterData
+        {
+            #_name: string
+            #_detail: string
+            #_maxHP: int
+            #_speed: float
+            #_spell: Spell
+            #_beforeHP: int
+            #_currentHP: ReactiveProperty<int>
+            #_onDamaged: Subject<int>
+            #_onDead: Subject<Util>
+            +<<property>>Name: string { get only }
+            +<<property>>Detail: string { get only }
+            +<<property>>MaxHP: int { get only }
+            +<<property>>CurrentHP: int { get only }
+            +<<property>>Speed: float { get only }
+            +<<property>>Spell: Spell { get only }
+            +<<property>>OnChangedHP: IObservable<int> { get only }
+            +<<property>>OnDamaged: IObservable<int> { get only }
+            +<<property>>OnDead: IObservable<Util> { get only }
+            +Damage(power: int): void
+        }
+        abstract CharacterView
+        {
+            -_renderer: Spriterenderer
+            -_explosionParticle: ParticleSystem
+            +Explosion(): void
+        }
+        interface IDamageable
+        {
+            +<<property>>CanHit: bool { get only }
+            +TakeDamage(power: int): void
+        }
+    }
+    package Motions
+    {
+        class AutoMotionExtension<<(S,#FF7700) static>>
+        {
+            +{static}DoMove(transform: Transform): void
+        }
+        abstract MotionData
+        {
+            #_speed: float
+            #_ease: Ease
+            #ToSpeed(speed: float): float
+            +{abstract}ToSequence(transform: Transform, speed: float): Sequence
+        }
+        interface IAutoMotion
+        {
+            +<<property>>Speed: float { get only }
+            +<<property>>Motions: IEnumerable<MotionData> { get only }
+            +<<property>>NowMotion: Sequence { get only }
+        }
+    }
+    package Spells
+    {
+        class SpellBulletInfo<<private>>
+        {
+            -_dataSet; BulletDataSet
+            -_speed: float
+            -_power: int
+            -_motions: List<MotionData>
+            +<<property>>DataSet: BulletDataSet { get only }
+            +<<property>>Speed: float { get only }
+            +<<property>>Power: int { get only }
+            +<<property>>Motions: IEnumerable<MotionData> { get only }
+        }
+        abstract Spell
+        {
+            -_name: string
+            -_detail: string
+            -_castingTime: float
+            -_bulletInfos: List<SpellBulletInfo>
+            +<<property>>Name: string { get only }
+            +<<property>>Detail: string { get only }
+            +<<property>>CastingTime { get only }
+            +<<property>>BulletCount: int { get only }
+            #{abstract}OnActived(activator: GameObject): void
+            #CreateBulletAt(index: int): GameObject
+            +Active(activator): void
+        }
+    }
+    package Stages
+    {
+        class Stage<<TimelineAsset, PlayableDirector>>
+    }
+    abstract Presenter<TModel, TView extends Component>
+    {
+        #_model: TModel
+        #_view: TView
+    }
+    abstract ScriptableObjectPresenter<TModel extends ScriptableObject, TView extends MonoBehaviour>
+    {
+        -_original: TModel
+    }
+}
+
+BulletData --|> ScriptableObject
+BulletDataSet --|> ScriptableObject
+EnemyData --|> ScriptableObject
+PlayerData --|> ScriptableObject
+MotionData --|> ScriptableObject
+Spell --|> ScriptableObject
+ScriptableObjectPresenter -up-|> Presenter
+Character -up-|> ScriptableObjectPresenter
+Bullet -up-|> Presenter
+Stage =up-|> Presenter
+Enemy -up-|> Character
+EnemyData -up-|> CharacterData
+EnemyView -up-|> CharacterView
+Player -up-|> Character
+PlayerData -up-|> CharacterData
+PlayerView -up-|> CharacterView
+
+Character .up.|> IDamageable
+BulletData ..|> IAutoMotion
+EnemyData ..|> IAutoMotion
+
+CharacterData *-- Spell
+IAutoMotion *-- MotionData
+
+Bullet *--> BulletData
+Bullet *--> BulletView
+BulletDataSet *--> BulletData
+Character *--> CharacterData
+Character *--> CharacterView
+Enemy *--> EnemyData
+Enemy *--> EnemyView
+Player *--> PlayerData
+Player *--> PlayerView
+SpellBulletInfo *--> BulletDataSet
+
+BulletDataSet --> Bullet : set model
+Bullet --> IDamageable : use
+AutoMotionExtension --> IAutoMotion : Extension
+
+Spell +-- SpellBulletInfo
+
+@enduml
