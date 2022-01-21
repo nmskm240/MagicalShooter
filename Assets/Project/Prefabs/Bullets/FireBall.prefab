@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3807069342719521411}
   - component: {fileID: 635996930180456814}
   - component: {fileID: 3613525011492454779}
+  - component: {fileID: 3799912119236695203}
   m_Layer: 9
   m_Name: FireBall
   m_TagString: Bullet
@@ -76,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 1645819397
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 27edbfb3697c8294f939e33beac45596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8dd8f4f1cfff8b24da80a74e2777e660, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.14, y: 0.22}
+  m_Size: {x: 5.87, y: 2.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -158,5 +159,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 172c9a6e20cc8754d90ad05c11b0960d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3799912119236695203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5312218552844099529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9d12493e67c37243ad85ebe8bed6bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
