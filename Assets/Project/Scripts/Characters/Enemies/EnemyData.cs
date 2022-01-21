@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using DG.Tweening;
-using Shooting.Motions;
+using MagicalShooter.Motions;
 
-namespace Shooting.Characters.Enemies
+namespace MagicalShooter.Characters.Enemies
 {
-    [CreateAssetMenu(fileName = "EnemyData", menuName = "Shooting/EnemyData", order = 0)]
+    [CreateAssetMenu(fileName = "EnemyData", menuName = "MagicalShooter/EnemyData", order = 0)]
     public class EnemyData : CharacterData, IAutoMotion
     {
         [SerializeField]

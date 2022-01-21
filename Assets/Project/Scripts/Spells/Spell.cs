@@ -1,10 +1,10 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using Shooting.Bullets;
-using Shooting.Motions;
+using MagicalShooter.Bullets;
+using MagicalShooter.Motions;
 
-namespace Shooting.Spells
+namespace MagicalShooter.Spells
 {
     public abstract class Spell : ScriptableObject
     {

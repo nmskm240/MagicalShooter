@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Shooting.Characters
+namespace MagicalShooter.Characters
 {
     public abstract class CharacterView : MonoBehaviour
     {

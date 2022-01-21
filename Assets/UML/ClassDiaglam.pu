@@ -1,6 +1,6 @@
-@startuml Shooting
+@startuml MagicalShooter
 
-package Shooting
+package MagicalShooter
 {
     package Bullets
     {

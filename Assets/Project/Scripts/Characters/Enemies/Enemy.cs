@@ -3,9 +3,9 @@ using UnityEngine;
 using DG.Tweening;
 using UniRx;
 using UniRx.Triggers;
-using Shooting.Motions;
+using MagicalShooter.Motions;
 
-namespace Shooting.Characters.Enemies
+namespace MagicalShooter.Characters.Enemies
 {
     [RequireComponent(typeof(EnemyView))]
     public class Enemy : Character<EnemyData, EnemyView>

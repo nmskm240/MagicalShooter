@@ -1,7 +1,7 @@
 using UnityEngine;
-using Shooting.Characters;
+using MagicalShooter.Characters;
 
-namespace Shooting.Characters.Enemies
+namespace MagicalShooter.Characters.Enemies
 {
     public class EnemyView : CharacterView
     {

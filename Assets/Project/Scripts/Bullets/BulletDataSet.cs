@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Shooting.Bullets
+namespace MagicalShooter.Bullets
 {
-    [CreateAssetMenu(fileName = "BulletDataSet", menuName = "Shooting/BulletDataSet", order = 0)]
+    [CreateAssetMenu(fileName = "BulletDataSet", menuName = "MagicalShooter/BulletDataSet", order = 0)]
     public class BulletDataSet : ScriptableObject
     {
         [SerializeField]

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 
-namespace Shooting.Motions
+namespace MagicalShooter.Motions
 {
     public interface IAutoMotion
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Shooting
+namespace MagicalShooter
 {
     public abstract class Presenter<TModel, TView> : MonoBehaviour
         where TView : Component

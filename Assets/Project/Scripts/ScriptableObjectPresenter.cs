@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Shooting
+namespace MagicalShooter
 {
     public abstract class ScriptableObjectPresenter<TModel, TView> : Presenter<TModel, TView>
         where TModel : ScriptableObject

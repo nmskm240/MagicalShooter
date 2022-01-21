@@ -1,4 +1,4 @@
-namespace Shooting.Characters
+namespace MagicalShooter.Characters
 {
     public interface IDamageable
     {

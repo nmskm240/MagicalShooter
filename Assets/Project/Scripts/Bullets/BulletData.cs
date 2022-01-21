@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using DG.Tweening;
-using Shooting.Motions;
+using MagicalShooter.Motions;
 
-namespace Shooting.Bullets
+namespace MagicalShooter.Bullets
 {
-    [CreateAssetMenu(fileName = "BulletData", menuName = "Shooting/BulletData", order = 0)]
+    [CreateAssetMenu(fileName = "BulletData", menuName = "MagicalShooter/BulletData", order = 0)]
     public class BulletData : ScriptableObject, IAutoMotion
     {
         [SerializeField]

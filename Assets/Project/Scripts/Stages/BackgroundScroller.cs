@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Shooting.Stages
+namespace MagicalShooter.Stages
 {
     public class BackgroundScroller : MonoBehaviour
     {

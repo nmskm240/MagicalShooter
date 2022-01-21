@@ -1,7 +1,7 @@
 using UnityEngine;
 using UniRx;
 
-namespace Shooting.Characters
+namespace MagicalShooter.Characters
 {
     public abstract class Character<TModel, TView> : ScriptableObjectPresenter<TModel, TView>, IDamageable
         where TModel : CharacterData

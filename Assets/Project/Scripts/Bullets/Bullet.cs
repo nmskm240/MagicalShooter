@@ -3,10 +3,10 @@ using UnityEngine;
 using DG.Tweening;
 using UniRx;
 using UniRx.Triggers;
-using Shooting.Characters;
-using Shooting.Motions;
+using MagicalShooter.Characters;
+using MagicalShooter.Motions;
 
-namespace Shooting.Bullets
+namespace MagicalShooter.Bullets
 {
     [RequireComponent(typeof(BulletView), typeof(Rigidbody2D))]
     public class Bullet : Presenter<BulletData, BulletView>

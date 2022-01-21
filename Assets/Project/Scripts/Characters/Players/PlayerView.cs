@@ -1,4 +1,4 @@
-namespace Shooting.Characters.Players
+namespace MagicalShooter.Characters.Players
 {
     public class PlayerView : CharacterView
     {

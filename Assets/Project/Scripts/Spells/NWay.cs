@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-namespace Shooting.Spells
+namespace MagicalShooter.Spells
 {
-    [CreateAssetMenu(fileName = "Spell", menuName = "Shooting/Spell/N-Way", order = 0)]
+    [CreateAssetMenu(fileName = "Spell", menuName = "MagicalShooter/Spell/N-Way", order = 0)]
     public class NWay : Spell
     {
         [SerializeField, Range(2, 128)]

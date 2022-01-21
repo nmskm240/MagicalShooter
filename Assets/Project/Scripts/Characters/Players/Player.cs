@@ -3,7 +3,7 @@ using UnityEngine;
 using UniRx;
 using UniRx.Triggers;
 
-namespace Shooting.Characters.Players
+namespace MagicalShooter.Characters.Players
 {
     [RequireComponent(typeof(PlayerView))]
     public class Player : Character<PlayerData, PlayerView>
