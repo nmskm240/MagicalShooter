@@ -46,8 +46,8 @@ namespace MagicalShooter.Spells
 
         protected GameObject CreateBulletAt(int index)
         {
-            var objectPool = GameObject.FindWithTag("ObjectPoolProvider");
-            var provider = objectPool.GetComponent<BulletObjectPoolProvider>();
+            var obj = GameObject.FindWithTag("ObjectPoolProvider");
+            var provider = obj.GetComponent<BulletObjectPoolProvider>();
             var clamped = Mathf.Clamp(index, 0, BulletCount - 1);
             var info = _bulletInfos.ElementAt(clamped);
             var bullet = provider.ObjectPool.Rent();

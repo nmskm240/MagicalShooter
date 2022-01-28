@@ -141,7 +141,11 @@ package MagicalShooter
     {
         class Stage<<TimelineAsset, PlayableDirector>>
     }
-    abstract ObjectPoolProvider<TPoolComponent extends Component>
+    interface IPoolObject
+    {
+        +<<property>>OnReturnPool: IObservable<Unit> { get only }
+    }
+    abstract ObjectPoolProvider<TPoolComponent extends Component, IPoolObject>
     {
         +<<property>>ObjectPool: ObjectPool<TPoolComponent> { protected set }
         #{abstract}CreateObjectPool(): void
@@ -176,6 +180,7 @@ PlayerData -up-|> CharacterData
 PlayerView -up-|> CharacterView
 
 Character .up.|> IDamageable
+Bullet .up.|> IPoolObject
 BulletData .up.|> IAutoMotion
 EnemyData .up.|> IAutoMotion
 
@@ -194,7 +199,10 @@ Player *--> PlayerView
 
 Bullet --> IDamageable : use
 AutoMotionExtension --> IAutoMotion : Extension
+Spell --> BulletObjectPoolProvider : use
 
 Spell +-- SpellBulletInfo
+
+ObjectPoolProvider -left- IPoolObject
 
 @enduml

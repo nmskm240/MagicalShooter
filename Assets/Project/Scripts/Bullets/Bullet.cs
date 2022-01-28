@@ -10,7 +10,7 @@ using MagicalShooter.Motions;
 namespace MagicalShooter.Bullets
 {
     [RequireComponent(typeof(BulletView), typeof(Rigidbody2D))]
-    public class Bullet : Presenter<BulletData, BulletView>
+    public class Bullet : Presenter<BulletData, BulletView>, IPoolObject
     {
         private readonly Subject<Unit> _returnPool = new Subject<Unit>();
 
