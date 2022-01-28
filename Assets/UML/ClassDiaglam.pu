@@ -6,7 +6,7 @@ package MagicalShooter
     {
         class Bullet
         {
-            -_model: BulletData
+            -_returnPool: Subject<Unit>
             +Init(model: BulletData):void
         }
         class BulletData
@@ -22,12 +22,15 @@ package MagicalShooter
             +<<property>>Speed: float
             +<<property>>Motions: IEnumerable<MotionData>
         }
-        class BulletDataSet
+        class BulletObjectPool<<Bullet>>
         {
-            -_prefab: GameObject
-            -_model: BulletData
-            +<<property>>Prefab: GameObject
-            +<<property>>Model: BulletData
+            -_original: Bullet
+            -_root: Transform
+            +BulletObjectPool(original: Bullet)
+        }
+        class BulletObjectPoolProvider<<Bullet>>
+        {
+            -prefab: Bullet
         }
         class BulletView
         {
@@ -110,11 +113,11 @@ package MagicalShooter
     {
         class SpellBulletInfo<<private>>
         {
-            -_dataSet; BulletDataSet
+            -_data; BulletData
             -_speed: float
             -_power: int
             -_motions: List<MotionData>
-            +<<property>>DataSet: BulletDataSet { get only }
+            +<<property>>Data: BulletData { get only }
             +<<property>>Speed: float { get only }
             +<<property>>Power: int { get only }
             +<<property>>Motions: IEnumerable<MotionData> { get only }
@@ -138,6 +141,11 @@ package MagicalShooter
     {
         class Stage<<TimelineAsset, PlayableDirector>>
     }
+    abstract ObjectPoolProvider<TPoolComponent extends Component>
+    {
+        +<<property>>ObjectPool: ObjectPool<TPoolComponent> { protected set }
+        #{abstract}CreateObjectPool(): void
+    }
     abstract Presenter<TModel, TView extends Component>
     {
         #_model: TModel
@@ -149,16 +157,17 @@ package MagicalShooter
     }
 }
 
-BulletData --|> ScriptableObject
-BulletDataSet --|> ScriptableObject
-EnemyData --|> ScriptableObject
-PlayerData --|> ScriptableObject
-MotionData --|> ScriptableObject
-Spell --|> ScriptableObject
+BulletData -up-|> UnityEngine.ScriptableObject
+EnemyData -up-|> UnityEngine.ScriptableObject
+PlayerData -up-|> UnityEngine.ScriptableObject
+MotionData -up-|> UnityEngine.ScriptableObject
+Spell -up-|> UnityEngine.ScriptableObject
 ScriptableObjectPresenter -up-|> Presenter
 Character -up-|> ScriptableObjectPresenter
 Bullet -up-|> Presenter
-Stage =up-|> Presenter
+BulletObjectPool -up-|> UniRx.Toolkit.ObjectPool
+BulletObjectPoolProvider -up-|> ObjectPoolProvider
+Stage -up-|> Presenter
 Enemy -up-|> Character
 EnemyData -up-|> CharacterData
 EnemyView -up-|> CharacterView
@@ -167,24 +176,22 @@ PlayerData -up-|> CharacterData
 PlayerView -up-|> CharacterView
 
 Character .up.|> IDamageable
-BulletData ..|> IAutoMotion
-EnemyData ..|> IAutoMotion
+BulletData .up.|> IAutoMotion
+EnemyData .up.|> IAutoMotion
 
-CharacterData *-- Spell
-IAutoMotion *-- MotionData
+CharacterData *-up- Spell
+IAutoMotion *-up- MotionData
+ObjectPoolProvider *-up- UniRx.Toolkit.ObjectPool
 
 Bullet *--> BulletData
 Bullet *--> BulletView
-BulletDataSet *--> BulletData
 Character *--> CharacterData
 Character *--> CharacterView
 Enemy *--> EnemyData
 Enemy *--> EnemyView
 Player *--> PlayerData
 Player *--> PlayerView
-SpellBulletInfo *--> BulletDataSet
 
-BulletDataSet --> Bullet : set model
 Bullet --> IDamageable : use
 AutoMotionExtension --> IAutoMotion : Extension
 

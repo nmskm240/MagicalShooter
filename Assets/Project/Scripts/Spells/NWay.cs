@@ -24,7 +24,6 @@ namespace MagicalShooter.Spells
                 var theta = span * i - baseAngle;
                 bullet.transform.position = activator.transform.position;
                 bullet.transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * theta, Vector3.forward);
-                bullet.transform.parent = null;
             }
         }
     }

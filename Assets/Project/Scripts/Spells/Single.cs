@@ -11,7 +11,6 @@ namespace MagicalShooter.Spells
             {
                 var bullet = CreateBulletAt(i);
                 bullet.transform.position = activator.transform.position;
-                bullet.transform.parent = null;
             }
         }
     }

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using UniRx;
 using MagicalShooter.Bullets;
 using MagicalShooter.Motions;
 
@@ -12,7 +13,7 @@ namespace MagicalShooter.Spells
         private class SpellBulletInfo
         {
             [SerializeField]
-            private BulletDataSet _dataSet;
+            private BulletData _data;
             [SerializeField, Range(0, 100)]
             private float _speed;
             [SerializeField, Range(0, 100)]
@@ -20,7 +21,7 @@ namespace MagicalShooter.Spells
             [SerializeField]
             private List<MotionData> _motions;
 
-            public BulletDataSet DataSet { get { return _dataSet; } }
+            public BulletData Data { get { return _data; } }
             public float Speed { get { return _speed; } }
             public int Power { get { return _power; } }
             public IEnumerable<MotionData> Motions { get { return _motions; } }
@@ -45,17 +46,20 @@ namespace MagicalShooter.Spells
 
         protected GameObject CreateBulletAt(int index)
         {
+            var objectPool = GameObject.FindWithTag("ObjectPoolProvider");
+            var provider = objectPool.GetComponent<BulletObjectPoolProvider>();
             var clamped = Mathf.Clamp(index, 0, BulletCount - 1);
-            var element = _bulletInfos.ElementAt(clamped);
-            var bullet = Instantiate(element.DataSet.Prefab);
-            var model = Instantiate(element.DataSet.Model);
             var info = _bulletInfos.ElementAt(clamped);
+            var bullet = provider.ObjectPool.Rent();
+            var model = Instantiate(info.Data);
             model.Motions = info.Motions;
             model.Power = info.Power;
             model.Speed = info.Speed;
-            bullet.layer = _layer;
-            bullet.GetComponent<Bullet>().Init(model);
-            return bullet;
+            bullet.gameObject.layer = _layer;
+            bullet.Init(model);
+            bullet.OnReturnPool
+                .Subscribe(_ => provider.ObjectPool.Return(bullet));
+            return bullet.gameObject;
         }
 
         public void Active(GameObject activator)

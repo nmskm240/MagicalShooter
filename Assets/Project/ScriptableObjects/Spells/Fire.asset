@@ -16,7 +16,7 @@ MonoBehaviour:
   _detail: "\u6700\u3082\u521D\u6B69\u7684\u306A\u9B54\u6CD5\u3002\n"
   _castingTime: 0.5
   _bulletInfos:
-  - _dataSet: {fileID: 11400000, guid: 40ac45096504caf4784c8fad7a12bc7b, type: 2}
+  - _data: {fileID: 11400000, guid: bef5b302db449224db0e578dcb9e0562, type: 2}
     _speed: 2.5
     _power: 3
     _motions:
