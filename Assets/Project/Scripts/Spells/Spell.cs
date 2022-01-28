@@ -26,7 +26,8 @@ namespace MagicalShooter.Spells
             public int Power { get { return _power; } }
             public IEnumerable<MotionData> Motions { get { return _motions; } }
         }
-
+        [SerializeField]
+        private Sprite _image;
         [SerializeField]
         private string _name;
         [SerializeField, Multiline]
@@ -37,6 +38,7 @@ namespace MagicalShooter.Spells
         private List<SpellBulletInfo> _bulletInfos;
         private int _layer;
 
+        public Sprite Image { get { return _image; } }
         public string Name { get { return _name; } }
         public string Detail { get { return _detail; } }
         public float CastingTime { get { return _castingTime; } }
