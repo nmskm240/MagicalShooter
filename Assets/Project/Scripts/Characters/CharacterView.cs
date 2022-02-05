@@ -8,7 +8,7 @@ namespace MagicalShooter.Characters
         [SerializeField]
         private ParticleSystem _explosionParticle;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
         }

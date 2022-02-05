@@ -27,11 +27,12 @@ namespace MagicalShooter.Characters.Players
                     var clamped = new Vector2(x - pos.x, y - pos.y);
                     transform.Translate(clamped);
                 });
-
             this.UpdateAsObservable()
                 .Where(_ => Input.GetKey(KeyCode.Space))
                 .ThrottleFirst(TimeSpan.FromSeconds(_model.Spell.CastingTime))
                 .Subscribe(_ => _model.Spell.Active(gameObject));
+            _model.OnDead
+                .Subscribe(_ => _view.ShowGameOverPanel());
         }
     }
 }
