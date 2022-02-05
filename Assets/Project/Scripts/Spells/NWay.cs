@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using UnityEngine;
 
-namespace Shooting.Spells
+namespace MagicalShooter.Spells
 {
-    [CreateAssetMenu(fileName = "Spell", menuName = "Shooting/Spell/N-Way", order = 0)]
+    [CreateAssetMenu(fileName = "Spell", menuName = "MagicalShooter/Spell/N-Way", order = 0)]
     public class NWay : Spell
     {
         [SerializeField, Range(2, 128)]
@@ -24,7 +24,6 @@ namespace Shooting.Spells
                 var theta = span * i - baseAngle;
                 bullet.transform.position = activator.transform.position;
                 bullet.transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * theta, Vector3.forward);
-                bullet.transform.parent = null;
             }
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-namespace Shooting.Motions
+namespace MagicalShooter.Motions
 {
     public abstract class MotionData : ScriptableObject
     {

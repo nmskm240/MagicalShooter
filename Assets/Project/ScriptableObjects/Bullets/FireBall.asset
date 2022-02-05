@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c2f992d46f054498f6bee05653bb43, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d3c073648ba240498e0c3e92a3b1e2d, type: 3}
   m_Name: FireBall
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 5312218552844099529, guid: f08de5b0cc2a4484fb4727d7e6298670, type: 3}
-  _model: {fileID: 11400000, guid: bef5b302db449224db0e578dcb9e0562, type: 2}
+  _name: "\u30D5\u30A1\u30A4\u30E4\u30FC\u30DC\u30FC\u30EB"
+  _detail: "\u306A\u3093\u306E\u5909\u54F2\u3082\u306A\u3044\u706B\u306E\u7389"

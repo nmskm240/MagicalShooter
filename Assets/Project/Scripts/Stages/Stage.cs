@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
-namespace Shooting.Stages
+namespace MagicalShooter.Stages
 {
     public class Stage : Presenter<TimelineAsset, PlayableDirector>
     {

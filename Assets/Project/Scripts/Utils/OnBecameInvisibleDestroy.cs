@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Shooting.Utils
+namespace MagicalShooter.Utils
 {
     public class OnBecameInvisibleDestroy : MonoBehaviour
     {

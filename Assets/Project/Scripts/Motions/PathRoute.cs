@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-namespace Shooting.Motions
+namespace MagicalShooter.Motions
 {
-    [CreateAssetMenu(fileName = "PathRoute", menuName = "Shooting/Motions/PathRoute", order = 0)]
+    [CreateAssetMenu(fileName = "PathRoute", menuName = "MagicalShooter/Motions/PathRoute", order = 0)]
     public class PathRoute : MotionData
     {
         [SerializeField]

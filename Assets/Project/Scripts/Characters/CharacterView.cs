@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Shooting.Characters
+namespace MagicalShooter.Characters
 {
     public abstract class CharacterView : MonoBehaviour
     {
@@ -8,7 +8,7 @@ namespace Shooting.Characters
         [SerializeField]
         private ParticleSystem _explosionParticle;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
         }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 
-namespace Shooting.Motions
+namespace MagicalShooter.Motions
 {
     public static class AutoMotionExtensiton
     {

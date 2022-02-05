@@ -1,9 +1,9 @@
 using UnityEngine;
 using DG.Tweening;
 
-namespace Shooting.Motions
+namespace MagicalShooter.Motions
 {
-    [CreateAssetMenu(fileName = "Straight", menuName = "Shooting/Motions/Straight", order = 0)]
+    [CreateAssetMenu(fileName = "Straight", menuName = "MagicalShooter/Motions/Straight", order = 0)]
     public class Straight : MotionData
     {
         public override Sequence ToSequence(Transform transform, Vector2 forward, float speed)

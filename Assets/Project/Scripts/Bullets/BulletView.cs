@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Shooting.Bullets
+namespace MagicalShooter.Bullets
 {
     public class BulletView : MonoBehaviour
     {

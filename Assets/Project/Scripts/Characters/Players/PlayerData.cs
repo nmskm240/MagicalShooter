@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Shooting.Characters.Players
+namespace MagicalShooter.Characters.Players
 {
-    [CreateAssetMenu(fileName = "PlayerData", menuName = "Shooting/PlayerData", order = 0)]
+    [CreateAssetMenu(fileName = "PlayerData", menuName = "MagicalShooter/PlayerData", order = 0)]
     public class PlayerData : CharacterData
     {
 

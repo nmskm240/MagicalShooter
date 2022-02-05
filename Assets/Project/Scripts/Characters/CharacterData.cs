@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 using UniRx;
-using Shooting.Spells;
+using MagicalShooter.Spells;
 
-namespace Shooting.Characters
+namespace MagicalShooter.Characters
 {
     public abstract class CharacterData : ScriptableObject
     {

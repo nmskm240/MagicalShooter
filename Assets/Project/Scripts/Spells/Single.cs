@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Shooting.Spells
+namespace MagicalShooter.Spells
 {
-    [CreateAssetMenu(fileName = "Spell", menuName = "Shooting/Spell/Single", order = 0)]
+    [CreateAssetMenu(fileName = "Spell", menuName = "MagicalShooter/Spell/Single", order = 0)]
     public class Single : Spell
     {
         protected override void OnActived(GameObject activator)
@@ -11,7 +11,6 @@ namespace Shooting.Spells
             {
                 var bullet = CreateBulletAt(i);
                 bullet.transform.position = activator.transform.position;
-                bullet.transform.parent = null;
             }
         }
     }
