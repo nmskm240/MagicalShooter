@@ -23,7 +23,7 @@ namespace MagicalShooter.Characters.Players
                     var pos = (Vector2)transform.position;
                     var moved = pos + vector;
                     var x = Mathf.Clamp(moved.x, min.x, max.x);
-                    var y = Mathf.Clamp(moved.y, min.y, max.y);
+                    var y = Mathf.Clamp(moved.y, min.y + 1, max.y);
                     var clamped = new Vector2(x - pos.x, y - pos.y);
                     transform.Translate(clamped);
                 });
