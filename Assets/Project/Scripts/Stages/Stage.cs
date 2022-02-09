@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
+using UniRx;
 
 namespace MagicalShooter.Stages
 {
@@ -11,8 +12,12 @@ namespace MagicalShooter.Stages
 
         private void Start()
         {
-            _view.playableAsset = _pattan;
-            _view.Play();
+            GameManager.Instance.OnGameStart
+                .Subscribe(_ =>
+                {
+                    _view.playableAsset = _pattan;
+                    _view.Play();
+                });
         }
     }
 }

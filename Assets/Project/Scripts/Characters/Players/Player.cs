@@ -32,7 +32,10 @@ namespace MagicalShooter.Characters.Players
                 .ThrottleFirst(TimeSpan.FromSeconds(_model.Spell.CastingTime))
                 .Subscribe(_ => _model.Spell.Active(gameObject));
             _model.OnDead
-                .Subscribe(_ => _view.ShowGameOverPanel());
+                .Subscribe(_ => 
+                {
+                    GameManager.Instance.GameOver();
+                });
         }
     }
 }
