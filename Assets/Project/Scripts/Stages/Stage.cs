@@ -12,12 +12,8 @@ namespace MagicalShooter.Stages
 
         private void Start()
         {
-            GameManager.Instance.OnGameStart
-                .Subscribe(_ =>
-                {
-                    _view.playableAsset = _pattan;
-                    _view.Play();
-                });
+            _view.playableAsset = _pattan;
+            _view.Play();
         }
     }
 }

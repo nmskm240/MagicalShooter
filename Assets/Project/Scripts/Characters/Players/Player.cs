@@ -31,11 +31,6 @@ namespace MagicalShooter.Characters.Players
                 .Where(_ => Input.GetKey(KeyCode.Space))
                 .ThrottleFirst(TimeSpan.FromSeconds(_model.Spell.CastingTime))
                 .Subscribe(_ => _model.Spell.Active(gameObject));
-            _model.OnDead
-                .Subscribe(_ => 
-                {
-                    GameManager.Instance.GameOver();
-                });
         }
     }
 }
