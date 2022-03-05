@@ -139,7 +139,30 @@ package MagicalShooter
     }
     package Stages
     {
-        class Stage<<TimelineAsset, PlayableDirector>>
+        class Stage<<StageData, StageView>>
+        class StageData
+        {
+            -_name: string
+            -_background: TimelineAsset
+            -_spawnTable: TimelineAsset
+            -_onStageCleared: Subject<Unit>
+            +<<property>>Name: string { get only }
+            +<<property>>Background: TimelineAsset { get only }
+            +<<property>>SpawnTable: TimelineAsset { get only }
+            +<<property>>OnStageCleared: IObservable<Unit> { get only }
+            +WaitUntilEnemiesInvisibly: IEnumerator
+        }
+        class StageView
+        {
+            -_backgroundPlayableDirector: PlayableDirector
+            -_spawnTablePlayableDirector: PlayableDirector
+            -_onEnemiesSpawnFinished: Subject<Unit>
+            +{property}IObservable<Unit> OnEnemiesSpawnFinished { get only }
+            -OnPlayableDirectorStopped(director: PlayableDirector): void
+            +SetBackgroundTimelineAsset(timelineAsset: TimelineAsset): void
+            +SetSpawnTableTimelineAsset(timelineAsset: TimelineAsset): void
+            +Play(): void
+        }
     }
     interface IPoolObject
     {
@@ -166,12 +189,13 @@ EnemyData -up-|> UnityEngine.ScriptableObject
 PlayerData -up-|> UnityEngine.ScriptableObject
 MotionData -up-|> UnityEngine.ScriptableObject
 Spell -up-|> UnityEngine.ScriptableObject
+StageData -up-|> UnityEngine.ScriptableObject
 ScriptableObjectPresenter -up-|> Presenter
 Character -up-|> ScriptableObjectPresenter
 Bullet -up-|> Presenter
 BulletObjectPool -up-|> UniRx.Toolkit.ObjectPool
 BulletObjectPoolProvider -up-|> ObjectPoolProvider
-Stage -up-|> Presenter
+Stage -up-|> ScriptableObjectPresenter
 Enemy -up-|> Character
 EnemyData -up-|> CharacterData
 EnemyView -up-|> CharacterView
@@ -196,6 +220,8 @@ Enemy *--> EnemyData
 Enemy *--> EnemyView
 Player *--> PlayerData
 Player *--> PlayerView
+Stage *--> StageData
+Stage *--> StageView
 
 Bullet --> IDamageable : use
 AutoMotionExtension --> IAutoMotion : Extension

@@ -93,6 +93,22 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   _pos: {x: 4.6, y: 2}
+--- !u!114 &-8412279446424371025
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 23.15
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: b9b1a0674ab9a2d4abb64ea561bd3576, type: 2}
 --- !u!114 &-8124527032740071638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -948,7 +964,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
-  m_Name: Debug
+  m_Name: Test
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
@@ -991,6 +1007,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   template:
     Enemy: {fileID: 8455796465507581424, guid: 598ce39b35045254999ef31cdc35a5bb, type: 3}
+--- !u!114 &557140027092839295
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fc6f5187a81dc47999eefade6f0935, type: 3}
+  m_Name: Enemy spawn tracks
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &1413398109367917808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1537,6 +1576,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   template:
     Enemy: {fileID: 8455796465507581424, guid: 598ce39b35045254999ef31cdc35a5bb, type: 3}
+--- !u!114 &7342887976519312228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e36075dd1c124a8422c228e75e1fb, type: 3}
+  m_Name: Signal Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &7466526547693736805
 MonoBehaviour:
   m_ObjectHideFlags: 1
